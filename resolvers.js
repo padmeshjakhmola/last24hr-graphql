@@ -1,4 +1,5 @@
 import axios from "axios";
+import 'dotenv/config'
 
 export const resolvers = {
   Query: {
@@ -7,7 +8,7 @@ export const resolvers = {
       {
         try {
           const response = await axios.get(
-            `http://localhost:3001/v1/news/top-headlines`
+            `${process.env.BACKEND_URL}/v1/news/top-headlines`
           );
           return response.data;
         } catch (error) {
